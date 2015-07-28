@@ -2,7 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.tosslife.com/2015/07/28/hello-world/</loc>
+    <loc>http://tosslife.github.io/2015/07/28/about-me/</loc>
+    <lastmod>2015-07-28T08:29:58.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://tosslife.github.io/2015/07/28/hello-world/</loc>
     <lastmod>2015-07-28T07:07:47.000Z</lastmod>
   </url>
   
