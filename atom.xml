@@ -5,7 +5,7 @@
   <subtitle><![CDATA[tosslife`s blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tosslife.github.io//"/>
-  <updated>2015-07-28T10:24:51.000Z</updated>
+  <updated>2015-07-29T04:39:37.000Z</updated>
   <id>http://tosslife.github.io//</id>
   
   <author>
@@ -16,15 +16,88 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[白话算法之直接插入算法]]></title>
-    <link href="http://tosslife.github.io/2015/07/28/%E7%99%BD%E8%AF%9D%E7%AE%97%E6%B3%95%E4%B9%8B%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E7%AE%97%E6%B3%95/"/>
-    <id>http://tosslife.github.io/2015/07/28/白话算法之直接插入算法/</id>
-    <published>2015-07-28T10:24:51.000Z</published>
-    <updated>2015-07-28T10:24:51.000Z</updated>
-    <content type="html"></content>
+    <title><![CDATA[算法简析之冒泡排序]]></title>
+    <link href="http://tosslife.github.io/2012/07/29/%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
+    <id>http://tosslife.github.io/2012/07/29/算法简析之冒泡排序/</id>
+    <published>2012-07-29T02:22:36.000Z</published>
+    <updated>2015-07-29T04:39:37.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="简析">简析</h3><hr>
+<h4 id="概念">概念</h4><p><strong>冒泡排序（Bubble sort）</strong> 是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
+<h4 id="原理">原理</h4><ol>
+<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</li>
+<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ol>
+<hr>
+<h3 id="范例（java）">范例（java）</h3><hr>
+<h4 id="概念代码">概念代码</h4><pre><code>  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {
+
+    <span class="keyword">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
+    <span class="keyword">int</span> <span class="keyword">count</span> = arr.length - <span class="number">1</span>;
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">count</span>; i++) {
+        <span class="comment">//对当前无序区间arr[0.....count-i]进行排序(j的范围很关键，这个范围是在逐步缩小的)</span>
+        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="keyword">count</span> - i; j++) {
+
+            <span class="comment">/**
+             * 从小到大：arr[j] &gt; arr[j + 1]
+             * 从大到小：arr[j] &lt; arr[j + 1]
+             */</span>
+
+            <span class="comment">//把大的值交换到后面</span>
+            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) {
+                <span class="keyword">int</span> temp = arr[j];
+                arr[j] = arr[j + <span class="number">1</span>];
+                arr[j + <span class="number">1</span>] = temp;
+            }
+        }
+
+        System.out.<span class="keyword">print</span>(<span class="string">"第"</span> + (i + <span class="number">1</span>) + <span class="string">"次排序结果："</span>);
+        <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
+            System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
+        }
+        System.out.<span class="keyword">println</span>(<span class="string">""</span>);
+
+    }
+
+    System.out.<span class="keyword">print</span>(<span class="string">"最终排序结果："</span>);
+    <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
+        System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
+    }
+}
+</code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">23	44	21	32</span>	<span class="number">55	56	13	74</span>	</span><br><span class="line">第2次排序结果：<span class="number">23	21	32	44</span>	<span class="number">55	13	56	74</span>	</span><br><span class="line">第3次排序结果：<span class="number">21	23	32	44</span>	<span class="number">13	55	56	74</span>	</span><br><span class="line">第4次排序结果：<span class="number">21	23	32	13</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">第5次排序结果：<span class="number">21	23	13	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">第6次排序结果：<span class="number">21	13	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">第7次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">最终排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span></span><br></pre></td></tr></table></figure>
+<h4 id="优化代码">优化代码</h4><p>设置一个标志，如果一趟发生了交换，则为true，否则为false。则跳出while循环，明显如果有一趟没有发生交换，说明排序已经完成。</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {
+
+    <span class="keyword">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
+    <span class="keyword">int</span> <span class="keyword">count</span> = arr.length - <span class="number">1</span>;
+    <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;
+    <span class="keyword">while</span> (flag) {
+        flag = <span class="keyword">false</span>;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">count</span>; i++) {
+            <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) {
+                <span class="keyword">int</span> temp = arr[i];
+                arr[i] = arr[i + <span class="number">1</span>];
+                arr[i + <span class="number">1</span>] = temp;
+                flag = <span class="keyword">true</span>;
+            }
+        }
+        <span class="keyword">count</span>--;
+    }
+}
+</code></pre><h3 id="注">注</h3><p><strong>对于随机数列第一个最快，另一个要稍慢一点点，原因是内层循环多了个赋值语句（内层循环的指令数影响很明显的），而对于随机数列实际能减少的循环次数几乎可忽略（精测试1%数量级的）。</strong></p>
+<hr>
+]]></content>
     <summary type="html">
-    
+    <![CDATA[<h3 id="简析">简析</h3><hr>
+<h4 id="概念">概念</h4><p><strong>冒泡排序（Bubble sort）</strong> 是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作]]>
     </summary>
+    
+      <category term="java" scheme="http://tosslife.github.io/tags/java/"/>
+    
+      <category term="排序" scheme="http://tosslife.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="算法" scheme="http://tosslife.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
