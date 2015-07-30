@@ -164,6 +164,115 @@
           
           
             
+              <a class="post-title-link" href="/2012/07/30/算法简析之直接选择排序/" itemprop="url">
+                算法简析之直接选择排序
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2012-07-30T18:59:49+08:00" content="2012-07-30">
+            2012-07-30
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2012/07/30/算法简析之直接选择排序/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2012/07/30/算法简析之直接选择排序/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="简析">简析</h3><hr>
+<h4 id="概念">概念</h4><p><strong>直接选择排序（Select sort）</strong> 每一趟从待排序的记录中选出关键字最小的记录，顺序放在已排好序的子文件的最后，直到全部记录排序完毕。</p>
+<h4 id="原理">原理</h4><ol>
+<li><p>初始时，数组全为无序区为a[0..n-1]。令i=0</p>
+</li>
+<li><p>在无序区a[i…n-1]中选取一个最小的元素，将其与a[i]交换。交换之后a[0…i]就形成了一个有序区。</p>
+</li>
+<li><p>i++并重复第二步直到i==n-1。排序完成。</p>
+</li>
+</ol>
+<hr>
+<h3 id="范例（java）">范例（java）</h3><hr>
+<h4 id="概念代码">概念代码</h4><pre><code> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) {
+    <span class="built_in">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
+    <span class="built_in">int</span> count = arr.length;
+    <span class="built_in">int</span> i, j, <span class="built_in">min</span>;
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; count; i++) {
+        <span class="built_in">min</span> = i;
+        <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; count; j++) {
+            <span class="keyword">if</span> (arr[j] &lt; arr[<span class="built_in">min</span>]) {<span class="comment">//找最小元素的位置</span>
+                <span class="built_in">min</span> = j;
+            }
+        }
+
+        <span class="built_in">int</span> temp = arr[i];
+        arr[i] = arr[<span class="built_in">min</span>];
+        arr[<span class="built_in">min</span>] = temp;
+
+        System.out.<span class="built_in">print</span>(<span class="string">"第"</span> + (i + <span class="number">1</span>) + <span class="string">"次排序结果："</span>);
+        <span class="keyword">for</span> (<span class="built_in">int</span> anArr : arr) {
+            System.out.<span class="built_in">print</span>(anArr + <span class="string">"\t"</span>);
+        }
+        System.out.<span class="built_in">println</span>(<span class="string">""</span>);
+    }
+
+    System.out.<span class="built_in">print</span>(<span class="string">"最终排序结果："</span>);
+    <span class="keyword">for</span> (<span class="built_in">int</span> anArr : arr) {
+        System.out.<span class="built_in">print</span>(anArr + <span class="string">"\t"</span>);
+    }
+}
+</code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">13	44	56	21</span>	<span class="number">32	55	74	23</span>	</span><br><span class="line">第2次排序结果：<span class="number">13	21	56	44</span>	<span class="number">32	55	74	23</span>	</span><br><span class="line">第3次排序结果：<span class="number">13	21	23	44</span>	<span class="number">32	55	74	56</span>	</span><br><span class="line">第4次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	74	56</span>	</span><br><span class="line">第5次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	74	56</span>	</span><br><span class="line">第6次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	74	56</span>	</span><br><span class="line">第7次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">第8次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">最终排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span></span><br></pre></td></tr></table></figure>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2012/07/30/算法简析之插入排序/" itemprop="url">
                 算法简析之插入排序
               </a>
@@ -491,7 +600,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -505,7 +614,7 @@
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
