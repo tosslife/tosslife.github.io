@@ -5,7 +5,7 @@
   <subtitle><![CDATA[tosslife`s blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tosslife.github.io//"/>
-  <updated>2015-07-29T04:39:37.000Z</updated>
+  <updated>2015-07-30T04:49:19.000Z</updated>
   <id>http://tosslife.github.io//</id>
   
   <author>
@@ -16,11 +16,134 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[算法简析之插入排序]]></title>
+    <link href="http://tosslife.github.io/2012/07/30/%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90%E4%B9%8B%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+    <id>http://tosslife.github.io/2012/07/30/算法简析之插入排序/</id>
+    <published>2012-07-30T03:51:30.000Z</published>
+    <updated>2015-07-30T04:49:19.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="简析">简析</h3><hr>
+<h4 id="概念">概念</h4><p><strong>插入排序（Insertion sort）</strong> 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。</p>
+<p><strong>直接插入排序</strong> 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有序表，重复n-1次可完成排序过程。</p>
+<p><strong>折半插入排序（binary insertion sort）</strong> 是对插入排序算法的一种改进，由于排序算法过程中，就是不断的依次将元素插入前面已排好序的序列中。由于前半部分为已排好序的数列，这样我们不用按顺序依次寻找插入点，可以采用折半查找的方法来加快寻找插入点的速度。</p>
+<h4 id="直接插入排序原理">直接插入排序原理</h4><p>假设待排序的记录存放在数组a[0…n-1]。</p>
+<ol>
+<li><p>初始时，a[0]自成1个有序区，无序区为a[1..n-1]。令i=1</p>
+</li>
+<li><p>将a[i]并入当前的有序区a[0…i-1]中形成a[0…i]的有序区间。</p>
+</li>
+<li><p>i++并重复第二步直到i==n-1。排序完成。</p>
+</li>
+</ol>
+<h4 id="折半插入排序原理">折半插入排序原理</h4><ol>
+<li><p>将待插入区域的首元素设置为a[low],末元素设置为a[high]，则轮比较时将待插入元素与a[m]</p>
+</li>
+<li><p>其中m=(low+high)/2相比较,如果比参考元素小，则选择a[low]到a[m-1]为新的插入区域(即high=m-1)，否则选择a[m+1]到a[high]为新的插入区域（即low=m+1）</p>
+</li>
+<li><p>如此直至low&lt;=high不成立，即将此位置之后所有元素后移一位，并将新元素插入a[high+1]。</p>
+</li>
+</ol>
+<hr>
+<h3 id="范例（java）">范例（java）</h3><hr>
+<h4 id="概念代码">概念代码</h4><pre><code>    <span class="comment">//直接插入排序</span>
+ <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {
+
+    <span class="keyword">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
+    <span class="keyword">int</span> <span class="keyword">count</span> = arr.length;
+    <span class="keyword">int</span> i, j, k;
+    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; <span class="keyword">count</span>; i++) {
+
+        <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) {
+            <span class="keyword">if</span> (arr[j] &lt; arr[i]) <span class="keyword">break</span>;
+        }
+
+        <span class="keyword">if</span> (j != i - <span class="number">1</span>) {
+            <span class="keyword">int</span> temp = arr[i];
+            <span class="keyword">for</span> (k = i - <span class="number">1</span>; k &gt; j; k--) {
+                arr[k + <span class="number">1</span>] = arr[k];
+            }
+            arr[k + <span class="number">1</span>] = temp;
+        }
+
+
+        System.out.<span class="keyword">print</span>(<span class="string">"第"</span> + i + <span class="string">"次排序结果："</span>);
+        <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
+            System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
+        }
+        System.out.<span class="keyword">println</span>(<span class="string">""</span>);
+
+    }
+
+    System.out.<span class="keyword">print</span>(<span class="string">"最终排序结果："</span>);
+    <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
+        System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
+    }
+}
+</code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第2次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第3次排序结果：<span class="number">21	23	44	56</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第4次排序结果：<span class="number">21	23	32	44</span>	<span class="number">56	55	74	13</span>	</span><br><span class="line">第5次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第6次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第7次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">最终排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span></span><br></pre></td></tr></table></figure>
+<pre><code>    <span class="comment">//折半插入排序</span>
+  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
+
+    <span class="keyword">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
+    <span class="keyword">int</span> count = arr.length;
+    <span class="keyword">int</span> middle = <span class="number">0</span>;
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; count; i++) {
+        <span class="keyword">int</span> low = <span class="number">0</span>;
+        <span class="keyword">int</span> high = i - <span class="number">1</span>;
+        <span class="keyword">int</span> temp = arr[i];
+
+        <span class="keyword">while</span> (low &lt;= high) {
+            middle = (low + high) / <span class="number">2</span>;
+            <span class="keyword">if</span> (temp &lt; arr[middle]) {
+                high = middle - <span class="number">1</span>;
+            } <span class="keyword">else</span> {
+                low = middle + <span class="number">1</span>;
+            }
+        }
+
+        <span class="keyword">int</span> k = i;
+        <span class="keyword">while</span> (k &gt; middle) {
+            arr[k] = arr[k - <span class="number">1</span>];
+            k--;
+        }
+
+        arr[high + <span class="number">1</span>] = temp;   <span class="comment">//此处用 numbers[low] = temp ;也可</span>
+
+        System.<span class="keyword">out</span>.print(<span class="string">"第"</span> + i + <span class="string">"次排序结果："</span>);
+        <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
+            System.<span class="keyword">out</span>.print(anArr + <span class="string">"\t"</span>);
+        }
+        System.<span class="keyword">out</span>.println(<span class="string">""</span>);
+
+    }
+
+    System.<span class="keyword">out</span>.print(<span class="string">"最终排序结果："</span>);
+    <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
+        System.<span class="keyword">out</span>.print(anArr + <span class="string">"\t"</span>);
+    }
+}
+</code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第2次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第3次排序结果：<span class="number">21	23	44	56</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第4次排序结果：<span class="number">21	23	32	44</span>	<span class="number">56	55	74	13</span>	</span><br><span class="line">第5次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第6次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第7次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">最终排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span></span><br></pre></td></tr></table></figure>
+<hr>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="简析">简析</h3><hr>
+<h4 id="概念">概念</h4><p><strong>插入排序（Insertion sort）</strong> 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直]]>
+    </summary>
+    
+      <category term="java" scheme="http://tosslife.github.io/tags/java/"/>
+    
+      <category term="排序" scheme="http://tosslife.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="插入" scheme="http://tosslife.github.io/tags/%E6%8F%92%E5%85%A5/"/>
+    
+      <category term="算法" scheme="http://tosslife.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[算法简析之冒泡排序]]></title>
     <link href="http://tosslife.github.io/2012/07/29/%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
     <id>http://tosslife.github.io/2012/07/29/算法简析之冒泡排序/</id>
     <published>2012-07-29T02:22:36.000Z</published>
-    <updated>2015-07-29T04:39:37.000Z</updated>
+    <updated>2015-07-30T03:53:02.000Z</updated>
     <content type="html"><![CDATA[<h3 id="简析">简析</h3><hr>
 <h4 id="概念">概念</h4><p><strong>冒泡排序（Bubble sort）</strong> 是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
 <h4 id="原理">原理</h4><ol>
@@ -94,6 +217,8 @@
     </summary>
     
       <category term="java" scheme="http://tosslife.github.io/tags/java/"/>
+    
+      <category term="冒泡" scheme="http://tosslife.github.io/tags/%E5%86%92%E6%B3%A1/"/>
     
       <category term="排序" scheme="http://tosslife.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
     

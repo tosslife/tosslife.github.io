@@ -2,6 +2,8 @@
 <html class="theme-next use-motion ">
 <head>
     
+    
+
 
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -28,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="java,排序,插入,算法," />
 
 
 
@@ -39,15 +41,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="Android | Java">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tosslife">
-<meta property="og:url" content="http://tosslife.github.io/index.html">
+<meta name="description" content="简析
+概念插入排序（Insertion sort） 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。
+直接插入排序 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法简析之插入排序">
+<meta property="og:url" content="http://tosslife.github.io/2012/07/30/算法简析之插入排序/index.html">
 <meta property="og:site_name" content="Tosslife">
-<meta property="og:description" content="Android | Java">
+<meta property="og:description" content="简析
+概念插入排序（Insertion sort） 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。
+直接插入排序 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有">
+<meta property="og:updated_time" content="2015-07-30T04:49:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tosslife">
-<meta name="twitter:description" content="Android | Java">
+<meta name="twitter:title" content="算法简析之插入排序">
+<meta name="twitter:description" content="简析
+概念插入排序（Insertion sort） 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。
+直接插入排序 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +66,7 @@
   };
 </script>
 
-    <title> Tosslife </title>
+    <title> 算法简析之插入排序 // Tosslife </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -83,9 +92,7 @@
 
 
 
-<div class="container one-column 
-   page-home 
-">
+<div class="container one-column page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
         <div class="header-inner"><h1 class="site-meta">
@@ -143,9 +150,9 @@
         <div class="main-inner">
             <div id="content" class="content">
                 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -156,9 +163,7 @@
           
           
             
-              <a class="post-title-link" href="/2012/07/30/算法简析之插入排序/" itemprop="url">
-                算法简析之插入排序
-              </a>
+              算法简析之插入排序
             
           
         </h1>
@@ -193,8 +198,7 @@
       
 
       
-        
-          <span itemprop="articleBody"><h3 id="简析">简析</h3><hr>
+        <span itemprop="articleBody"><h3 id="简析">简析</h3><hr>
 <h4 id="概念">概念</h4><p><strong>插入排序（Insertion sort）</strong> 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。</p>
 <p><strong>直接插入排序</strong> 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有序表，重复n-1次可完成排序过程。</p>
 <p><strong>折半插入排序（binary insertion sort）</strong> 是对插入排序算法的一种改进，由于排序算法过程中，就是不断的依次将元素插入前面已排好序的序列中。由于前半部分为已排好序的数列，这样我们不用按顺序依次寻找插入点，可以采用折半查找的方法来加快寻找插入点的速度。</p>
@@ -296,166 +300,86 @@
 </code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第2次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第3次排序结果：<span class="number">21	23	44	56</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第4次排序结果：<span class="number">21	23	32	44</span>	<span class="number">56	55	74	13</span>	</span><br><span class="line">第5次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第6次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第7次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">最终排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span></span><br></pre></td></tr></table></figure>
 <hr>
 </span>
-        
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/排序/" rel="tag">#排序</a>
+          
+            <a href="/tags/插入/" rel="tag">#插入</a>
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/07/29/算法简析之冒泡排序/" rel="next">算法简析之冒泡排序</a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2012/07/29/算法简析之冒泡排序/" itemprop="url">
-                算法简析之冒泡排序
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2012-07-29T10:22:36+08:00" content="2012-07-29">
-            2012-07-29
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2012/07/29/算法简析之冒泡排序/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2012/07/29/算法简析之冒泡排序/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h3 id="简析">简析</h3><hr>
-<h4 id="概念">概念</h4><p><strong>冒泡排序（Bubble sort）</strong> 是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
-<h4 id="原理">原理</h4><ol>
-<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
-<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</li>
-<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
-<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
-</ol>
-<hr>
-<h3 id="范例（java）">范例（java）</h3><hr>
-<h4 id="概念代码">概念代码</h4><pre><code>  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {
-
-    <span class="keyword">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
-    <span class="keyword">int</span> <span class="keyword">count</span> = arr.length - <span class="number">1</span>;
-    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">count</span>; i++) {
-        <span class="comment">//对当前无序区间arr[0.....count-i]进行排序(j的范围很关键，这个范围是在逐步缩小的)</span>
-        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="keyword">count</span> - i; j++) {
-
-            <span class="comment">/**
-             * 从小到大：arr[j] &gt; arr[j + 1]
-             * 从大到小：arr[j] &lt; arr[j + 1]
-             */</span>
-
-            <span class="comment">//把大的值交换到后面</span>
-            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) {
-                <span class="keyword">int</span> temp = arr[j];
-                arr[j] = arr[j + <span class="number">1</span>];
-                arr[j + <span class="number">1</span>] = temp;
-            }
-        }
-
-        System.out.<span class="keyword">print</span>(<span class="string">"第"</span> + (i + <span class="number">1</span>) + <span class="string">"次排序结果："</span>);
-        <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
-            System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
-        }
-        System.out.<span class="keyword">println</span>(<span class="string">""</span>);
-
-    }
-
-    System.out.<span class="keyword">print</span>(<span class="string">"最终排序结果："</span>);
-    <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
-        System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
-    }
-}
-</code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">23	44	21	32</span>	<span class="number">55	56	13	74</span>	</span><br><span class="line">第2次排序结果：<span class="number">23	21	32	44</span>	<span class="number">55	13	56	74</span>	</span><br><span class="line">第3次排序结果：<span class="number">21	23	32	44</span>	<span class="number">13	55	56	74</span>	</span><br><span class="line">第4次排序结果：<span class="number">21	23	32	13</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">第5次排序结果：<span class="number">21	23	13	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">第6次排序结果：<span class="number">21	13	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">第7次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">最终排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span></span><br></pre></td></tr></table></figure>
-<h4 id="优化代码">优化代码</h4><p>设置一个标志，如果一趟发生了交换，则为true，否则为false。则跳出while循环，明显如果有一趟没有发生交换，说明排序已经完成。</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {
-
-    <span class="keyword">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
-    <span class="keyword">int</span> <span class="keyword">count</span> = arr.length - <span class="number">1</span>;
-    <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;
-    <span class="keyword">while</span> (flag) {
-        flag = <span class="keyword">false</span>;
-        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">count</span>; i++) {
-            <span class="keyword">if</span> (arr[i] &gt; arr[i + <span class="number">1</span>]) {
-                <span class="keyword">int</span> temp = arr[i];
-                arr[i] = arr[i + <span class="number">1</span>];
-                arr[i + <span class="number">1</span>] = temp;
-                flag = <span class="keyword">true</span>;
-            }
-        }
-        <span class="keyword">count</span>--;
-    }
-}
-</code></pre><h3 id="注">注</h3><p><strong>对于随机数列第一个最快，另一个要稍慢一点点，原因是内层循环多了个赋值语句（内层循环的指令数影响很明显的），而对于随机数列实际能减少的循环次数几乎可忽略（精测试1%数量级的）。</strong></p>
-<hr>
-</span>
-        
       
     </div>
+  </div>
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
 
             </div>
 
             
 
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2012/07/30/算法简析之插入排序/"
+                       data-title="算法简析之插入排序" data-url="http://tosslife.github.io/2012/07/30/算法简析之插入排序/">
+                  </div>
+                
+              </div>
             
         </div>
 
@@ -472,6 +396,15 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -539,6 +472,17 @@
       </section>
 
       
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简析"><span class="nav-number">1.</span> <span class="nav-text">简析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接插入排序原理"><span class="nav-number">1.2.</span> <span class="nav-text">直接插入排序原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#折半插入排序原理"><span class="nav-number">1.3.</span> <span class="nav-text">折半插入排序原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范例（java）"><span class="nav-number">2.</span> <span class="nav-text">范例（java）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念代码"><span class="nav-number">2.1.</span> <span class="nav-text">概念代码</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
 
     </div>
   </aside>
@@ -582,7 +526,7 @@
   
   
   
-  
+    
 
   
     
@@ -609,8 +553,8 @@
   	<script src="/js/hook-duoshuo.js"></script>
   
 
+    
   
-
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
@@ -629,6 +573,165 @@
   <script type="text/javascript" src="/js/search-toggle.js"></script>
 
 
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -640,35 +743,6 @@
 
 
 
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"tosslife"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-  	  <script type="text/javascript">
-  		var duoshuo_user_ID = 0
-  	  </script>
-     
-  	<script src="/js/ua-parser.min.js"></script>
-  	<script src="/js/hook-duoshuo.js"></script>
-  
-
-  
 
 
 
