@@ -5,7 +5,7 @@
   <subtitle><![CDATA[tosslife`s blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tosslife.github.io//"/>
-  <updated>2015-07-30T04:49:19.000Z</updated>
+  <updated>2015-07-30T09:50:54.000Z</updated>
   <id>http://tosslife.github.io//</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://tosslife.github.io/2012/07/30/%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90%E4%B9%8B%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
     <id>http://tosslife.github.io/2012/07/30/算法简析之插入排序/</id>
     <published>2012-07-30T03:51:30.000Z</published>
-    <updated>2015-07-30T04:49:19.000Z</updated>
+    <updated>2015-07-30T09:50:54.000Z</updated>
     <content type="html"><![CDATA[<h3 id="简析">简析</h3><hr>
 <h4 id="概念">概念</h4><p><strong>插入排序（Insertion sort）</strong> 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。</p>
 <p><strong>直接插入排序</strong> 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有序表，重复n-1次可完成排序过程。</p>
@@ -105,7 +105,7 @@
             k--;
         }
 
-        arr[high + <span class="number">1</span>] = temp;   <span class="comment">//此处用 numbers[low] = temp ;也可</span>
+        arr[high + <span class="number">1</span>] = temp;   <span class="comment">//此处用 arr[low] = temp ;也可</span>
 
         System.<span class="keyword">out</span>.print(<span class="string">"第"</span> + i + <span class="string">"次排序结果："</span>);
         <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {

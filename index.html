@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion ">
+<html class="theme-next use-motion theme-next-mist">
 <head>
     
 
@@ -52,7 +52,7 @@
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
-    scheme: '',
+    scheme: 'Mist',
     sidebar: 'post'
   };
 </script>
@@ -126,6 +126,14 @@
           <a href="/archives" rel="section">
             <i class="menu-item-icon icon-archives"></i> <br />
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-about"></i> <br />
+            关于
           </a>
         </li>
       
@@ -278,7 +286,7 @@
             k--;
         }
 
-        arr[high + <span class="number">1</span>] = temp;   <span class="comment">//此处用 numbers[low] = temp ;也可</span>
+        arr[high + <span class="number">1</span>] = temp;   <span class="comment">//此处用 arr[low] = temp ;也可</span>
 
         System.<span class="keyword">out</span>.print(<span class="string">"第"</span> + i + <span class="string">"次排序结果："</span>);
         <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
@@ -565,7 +573,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
@@ -638,6 +646,27 @@
     });
 </script>
 
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
 
