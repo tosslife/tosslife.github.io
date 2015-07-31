@@ -164,6 +164,120 @@
           
           
             
+              <a class="post-title-link" href="/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/" itemprop="url">
+                Android中Java与Js交互及Js注入取Html标签值详解
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-07-31T14:41:05+08:00" content="2015-07-31">
+            2015-07-31
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="开篇导读">开篇导读</h3><p><strong>Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。</strong><br><strong>本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用</strong></p>
+<hr>
+<h3 id="操作步骤">操作步骤</h3><ol>
+<li><p>WebView开启Js调用：</p>
+<pre><code>mWebView.getSettings<span class="params">()</span>.setJavaScriptEnabled<span class="params">(<span class="literal">true</span>)</span>;
+</code></pre></li>
+<li><p>定义JavaScript调用的交互接口及方法：</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaScriptInterface</span> </span>{
+
+    <span class="annotation">@JavascriptInterface</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getTagVal</span><span class="params">(<span class="keyword">final</span> String val)</span> </span>{
+
+        <span class="keyword">if</span> (!TextUtils.isEmpty(shareUrl)) {
+            Log.e(<span class="string">"log tag"</span>, <span class="string">"received from js. val = "</span> + val);
+        }
+    }
+}
+</code></pre></li>
+<li><p>WebView设置供JavaScript调用的交互接口。</p>
+<pre><code><span class="comment">//后面 “android” 相当于一个标志符</span>
+mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<span class="params">()</span>, <span class="string">"android"</span>)</span>;
+</code></pre></li>
+<li><p>在WebView加载完毕时注入JavaScript代码</p>
+<p> 先看网页代码</p>
+<pre><code>//这里是Html中我要通过注入取得的标签代码
+&lt;meta <span class="variable">name=</span><span class="string">"tag"</span> <span class="variable">content=</span><span class="string">"恭喜你注入成功，得到了返回值"</span> /&gt;
+</code></pre><p> 再来实现我们的java代码</p>
+<pre><code>mWebView.setWebViewClient(<span class="keyword">new</span> WebViewClient() {
+
+    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>{
+        view.loadUrl(url);
+        <span class="comment">//返回值为true的时候控制去WebView打开，为false调用系统浏览器或第三方浏览器</span>
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView webView, String url)</span> </span>{
+       <span class="comment">//此处windows.android.getTagVal中android是第3步中设置的标记，getTagVal是第2步中的接口中的方法名</span>
+       <span class="comment">//回调的参数中传的就是js代码，自行根据实际html标签脑补或百度</span>
+       String js = <span class="string">"window.android.getTagVal(document.getElementsByName('tag')[0].content))"</span>;
+       webView.loadUrl(<span class="string">"javascript:"</span> + js);
+    }
+});
+</code></pre></li>
+</ol>
+<p><strong>OK！完美收官</strong></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2012/07/30/算法简析之直接选择排序/" itemprop="url">
                 算法简析之直接选择排序
               </a>
@@ -600,7 +714,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -614,7 +728,7 @@
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">标签</span>
               
           </div>

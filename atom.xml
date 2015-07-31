@@ -5,7 +5,7 @@
   <subtitle><![CDATA[tosslife`s blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tosslife.github.io//"/>
-  <updated>2015-07-30T11:09:38.000Z</updated>
+  <updated>2015-07-31T07:12:32.000Z</updated>
   <id>http://tosslife.github.io//</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android中Java与Js交互及Js注入取Html标签值详解]]></title>
+    <link href="http://tosslife.github.io/2015/07/31/Android%E4%B8%ADJava%E4%B8%8EJs%E4%BA%A4%E4%BA%92%E5%8F%8AJs%E6%B3%A8%E5%85%A5%E5%8F%96Html%E6%A0%87%E7%AD%BE%E5%80%BC%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://tosslife.github.io/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/</id>
+    <published>2015-07-31T06:41:05.000Z</published>
+    <updated>2015-07-31T07:12:32.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="开篇导读">开篇导读</h3><p><strong>Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。</strong><br><strong>本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用</strong></p>
+<hr>
+<h3 id="操作步骤">操作步骤</h3><ol>
+<li><p>WebView开启Js调用：</p>
+<pre><code>mWebView.getSettings<span class="params">()</span>.setJavaScriptEnabled<span class="params">(<span class="literal">true</span>)</span>;
+</code></pre></li>
+<li><p>定义JavaScript调用的交互接口及方法：</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaScriptInterface</span> </span>{
+
+    <span class="annotation">@JavascriptInterface</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getTagVal</span><span class="params">(<span class="keyword">final</span> String val)</span> </span>{
+
+        <span class="keyword">if</span> (!TextUtils.isEmpty(shareUrl)) {
+            Log.e(<span class="string">"log tag"</span>, <span class="string">"received from js. val = "</span> + val);
+        }
+    }
+}
+</code></pre></li>
+<li><p>WebView设置供JavaScript调用的交互接口。</p>
+<pre><code><span class="comment">//后面 “android” 相当于一个标志符</span>
+mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<span class="params">()</span>, <span class="string">"android"</span>)</span>;
+</code></pre></li>
+<li><p>在WebView加载完毕时注入JavaScript代码</p>
+<p> 先看网页代码</p>
+<pre><code>//这里是Html中我要通过注入取得的标签代码
+&lt;meta <span class="variable">name=</span><span class="string">"tag"</span> <span class="variable">content=</span><span class="string">"恭喜你注入成功，得到了返回值"</span> /&gt;
+</code></pre><p> 再来实现我们的java代码</p>
+<pre><code>mWebView.setWebViewClient(<span class="keyword">new</span> WebViewClient() {
+
+    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>{
+        view.loadUrl(url);
+        <span class="comment">//返回值为true的时候控制去WebView打开，为false调用系统浏览器或第三方浏览器</span>
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView webView, String url)</span> </span>{
+       <span class="comment">//此处windows.android.getTagVal中android是第3步中设置的标记，getTagVal是第2步中的接口中的方法名</span>
+       <span class="comment">//回调的参数中传的就是js代码，自行根据实际html标签脑补或百度</span>
+       String js = <span class="string">"window.android.getTagVal(document.getElementsByName('tag')[0].content))"</span>;
+       webView.loadUrl(<span class="string">"javascript:"</span> + js);
+    }
+});
+</code></pre></li>
+</ol>
+<p><strong>OK！完美收官</strong></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="开篇导读">开篇导读</h3><p><strong>Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。</strong><br><strong>本文将介绍如何通过JavaScript代码注入实现获取Ht]]>
+    </summary>
+    
+      <category term="Android" scheme="http://tosslife.github.io/tags/Android/"/>
+    
+      <category term="js注入" scheme="http://tosslife.github.io/tags/js%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[算法简析之直接选择排序]]></title>

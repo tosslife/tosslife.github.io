@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="java,排序,插入,算法," />
+  <meta name="keywords" content="Android,js注入," />
 
 
 
@@ -39,22 +39,34 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="简析
-概念插入排序（Insertion sort） 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。
-直接插入排序 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有">
+<meta name="description" content="开篇导读Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用
+
+操作步骤
+WebView开启Js调用：
+mWebView.getSettings().setJavaScriptEnabled(true);
+
+定义J">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法简析之插入排序">
-<meta property="og:url" content="http://tosslife.github.io/2012/07/30/算法简析之插入排序/index.html">
+<meta property="og:title" content="Android中Java与Js交互及Js注入取Html标签值详解">
+<meta property="og:url" content="http://tosslife.github.io/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/index.html">
 <meta property="og:site_name" content="Tosslife">
-<meta property="og:description" content="简析
-概念插入排序（Insertion sort） 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。
-直接插入排序 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有">
-<meta property="og:updated_time" content="2015-07-30T09:50:54.000Z">
+<meta property="og:description" content="开篇导读Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用
+
+操作步骤
+WebView开启Js调用：
+mWebView.getSettings().setJavaScriptEnabled(true);
+
+定义J">
+<meta property="og:updated_time" content="2015-07-31T07:12:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法简析之插入排序">
-<meta name="twitter:description" content="简析
-概念插入排序（Insertion sort） 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。
-直接插入排序 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有">
+<meta name="twitter:title" content="Android中Java与Js交互及Js注入取Html标签值详解">
+<meta name="twitter:description" content="开篇导读Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用
+
+操作步骤
+WebView开启Js调用：
+mWebView.getSettings().setJavaScriptEnabled(true);
+
+定义J">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +76,7 @@
   };
 </script>
 
-    <title> 算法简析之插入排序 // Tosslife </title>
+    <title> Android中Java与Js交互及Js注入取Html标签值详解 // Tosslife </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -169,7 +181,7 @@
           
           
             
-              算法简析之插入排序
+              Android中Java与Js交互及Js注入取Html标签值详解
             
           
         </h1>
@@ -178,8 +190,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2012-07-30T11:51:30+08:00" content="2012-07-30">
-            2012-07-30
+          <time itemprop="dateCreated" datetime="2015-07-31T14:41:05+08:00" content="2015-07-31">
+            2015-07-31
           </time>
         </span>
 
@@ -189,8 +201,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2012/07/30/算法简析之插入排序/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2012/07/30/算法简析之插入排序/" itemprop="commentsCount"></span>
+              <a href="/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -204,107 +216,52 @@
       
 
       
-        <span itemprop="articleBody"><h3 id="简析">简析</h3><hr>
-<h4 id="概念">概念</h4><p><strong>插入排序（Insertion sort）</strong> 插入排序就是每一步都将一个待排数据按其大小插入到已经排序的数据中的适当位置，直到全部插入完毕。 插入排序方法分直接插入排序和折半插入排序两种。</p>
-<p><strong>直接插入排序</strong> 把n个待排序的元素看成为一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有序表，重复n-1次可完成排序过程。</p>
-<p><strong>折半插入排序（binary insertion sort）</strong> 是对插入排序算法的一种改进，由于排序算法过程中，就是不断的依次将元素插入前面已排好序的序列中。由于前半部分为已排好序的数列，这样我们不用按顺序依次寻找插入点，可以采用折半查找的方法来加快寻找插入点的速度。</p>
-<h4 id="直接插入排序原理">直接插入排序原理</h4><p>假设待排序的记录存放在数组a[0…n-1]。</p>
-<ol>
-<li><p>初始时，a[0]自成1个有序区，无序区为a[1..n-1]。令i=1</p>
-</li>
-<li><p>将a[i]并入当前的有序区a[0…i-1]中形成a[0…i]的有序区间。</p>
-</li>
-<li><p>i++并重复第二步直到i==n-1。排序完成。</p>
-</li>
-</ol>
-<h4 id="折半插入排序原理">折半插入排序原理</h4><ol>
-<li><p>将待插入区域的首元素设置为a[low],末元素设置为a[high]，则轮比较时将待插入元素与a[m]</p>
-</li>
-<li><p>其中m=(low+high)/2相比较,如果比参考元素小，则选择a[low]到a[m-1]为新的插入区域(即high=m-1)，否则选择a[m+1]到a[high]为新的插入区域（即low=m+1）</p>
-</li>
-<li><p>如此直至low&lt;=high不成立，即将此位置之后所有元素后移一位，并将新元素插入a[high+1]。</p>
-</li>
-</ol>
+        <span itemprop="articleBody"><h3 id="开篇导读">开篇导读</h3><p><strong>Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。</strong><br><strong>本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用</strong></p>
 <hr>
-<h3 id="范例（java）">范例（java）</h3><hr>
-<h4 id="概念代码">概念代码</h4><pre><code>    <span class="comment">//直接插入排序</span>
- <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {
+<h3 id="操作步骤">操作步骤</h3><ol>
+<li><p>WebView开启Js调用：</p>
+<pre><code>mWebView.getSettings<span class="params">()</span>.setJavaScriptEnabled<span class="params">(<span class="literal">true</span>)</span>;
+</code></pre></li>
+<li><p>定义JavaScript调用的交互接口及方法：</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaScriptInterface</span> </span>{
 
-    <span class="keyword">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
-    <span class="keyword">int</span> <span class="keyword">count</span> = arr.length;
-    <span class="keyword">int</span> i, j, k;
-    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; <span class="keyword">count</span>; i++) {
+    <span class="annotation">@JavascriptInterface</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getTagVal</span><span class="params">(<span class="keyword">final</span> String val)</span> </span>{
 
-        <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) {
-            <span class="keyword">if</span> (arr[j] &lt; arr[i]) <span class="keyword">break</span>;
+        <span class="keyword">if</span> (!TextUtils.isEmpty(shareUrl)) {
+            Log.e(<span class="string">"log tag"</span>, <span class="string">"received from js. val = "</span> + val);
         }
-
-        <span class="keyword">if</span> (j != i - <span class="number">1</span>) {
-            <span class="keyword">int</span> temp = arr[i];
-            <span class="keyword">for</span> (k = i - <span class="number">1</span>; k &gt; j; k--) {
-                arr[k + <span class="number">1</span>] = arr[k];
-            }
-            arr[k + <span class="number">1</span>] = temp;
-        }
-
-
-        System.out.<span class="keyword">print</span>(<span class="string">"第"</span> + i + <span class="string">"次排序结果："</span>);
-        <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
-            System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
-        }
-        System.out.<span class="keyword">println</span>(<span class="string">""</span>);
-
-    }
-
-    System.out.<span class="keyword">print</span>(<span class="string">"最终排序结果："</span>);
-    <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
-        System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
     }
 }
-</code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第2次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第3次排序结果：<span class="number">21	23	44	56</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第4次排序结果：<span class="number">21	23	32	44</span>	<span class="number">56	55	74	13</span>	</span><br><span class="line">第5次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第6次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第7次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">最终排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span></span><br></pre></td></tr></table></figure>
-<pre><code>    <span class="comment">//折半插入排序</span>
-  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>{
+</code></pre></li>
+<li><p>WebView设置供JavaScript调用的交互接口。</p>
+<pre><code><span class="comment">//后面 “android” 相当于一个标志符</span>
+mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<span class="params">()</span>, <span class="string">"android"</span>)</span>;
+</code></pre></li>
+<li><p>在WebView加载完毕时注入JavaScript代码</p>
+<p> 先看网页代码</p>
+<pre><code>//这里是Html中我要通过注入取得的标签代码
+&lt;meta <span class="variable">name=</span><span class="string">"tag"</span> <span class="variable">content=</span><span class="string">"恭喜你注入成功，得到了返回值"</span> /&gt;
+</code></pre><p> 再来实现我们的java代码</p>
+<pre><code>mWebView.setWebViewClient(<span class="keyword">new</span> WebViewClient() {
 
-    <span class="keyword">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
-    <span class="keyword">int</span> count = arr.length;
-    <span class="keyword">int</span> middle = <span class="number">0</span>;
-    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; count; i++) {
-        <span class="keyword">int</span> low = <span class="number">0</span>;
-        <span class="keyword">int</span> high = i - <span class="number">1</span>;
-        <span class="keyword">int</span> temp = arr[i];
-
-        <span class="keyword">while</span> (low &lt;= high) {
-            middle = (low + high) / <span class="number">2</span>;
-            <span class="keyword">if</span> (temp &lt; arr[middle]) {
-                high = middle - <span class="number">1</span>;
-            } <span class="keyword">else</span> {
-                low = middle + <span class="number">1</span>;
-            }
-        }
-
-        <span class="keyword">int</span> k = i;
-        <span class="keyword">while</span> (k &gt; middle) {
-            arr[k] = arr[k - <span class="number">1</span>];
-            k--;
-        }
-
-        arr[high + <span class="number">1</span>] = temp;   <span class="comment">//此处用 arr[low] = temp ;也可</span>
-
-        System.<span class="keyword">out</span>.print(<span class="string">"第"</span> + i + <span class="string">"次排序结果："</span>);
-        <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
-            System.<span class="keyword">out</span>.print(anArr + <span class="string">"\t"</span>);
-        }
-        System.<span class="keyword">out</span>.println(<span class="string">""</span>);
-
+    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>{
+        view.loadUrl(url);
+        <span class="comment">//返回值为true的时候控制去WebView打开，为false调用系统浏览器或第三方浏览器</span>
+        <span class="keyword">return</span> <span class="keyword">true</span>;
     }
 
-    System.<span class="keyword">out</span>.print(<span class="string">"最终排序结果："</span>);
-    <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
-        System.<span class="keyword">out</span>.print(anArr + <span class="string">"\t"</span>);
+    <span class="annotation">@Override</span>
+    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView webView, String url)</span> </span>{
+       <span class="comment">//此处windows.android.getTagVal中android是第3步中设置的标记，getTagVal是第2步中的接口中的方法名</span>
+       <span class="comment">//回调的参数中传的就是js代码，自行根据实际html标签脑补或百度</span>
+       String js = <span class="string">"window.android.getTagVal(document.getElementsByName('tag')[0].content))"</span>;
+       webView.loadUrl(<span class="string">"javascript:"</span> + js);
     }
-}
-</code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第2次排序结果：<span class="number">23	44	56	21</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第3次排序结果：<span class="number">21	23	44	56</span>	<span class="number">32	55	74	13</span>	</span><br><span class="line">第4次排序结果：<span class="number">21	23	32	44</span>	<span class="number">56	55	74	13</span>	</span><br><span class="line">第5次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第6次排序结果：<span class="number">21	23	32	44</span>	<span class="number">55	56	74	13</span>	</span><br><span class="line">第7次排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span>	</span><br><span class="line">最终排序结果：<span class="number">13	21	23	32</span>	<span class="number">44	55	56	74</span></span><br></pre></td></tr></table></figure>
-<hr>
+});
+</code></pre></li>
+</ol>
+<p><strong>OK！完美收官</strong></p>
 </span>
       
     </div>
@@ -313,13 +270,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag">#java</a>
+            <a href="/tags/Android/" rel="tag">#Android</a>
           
-            <a href="/tags/排序/" rel="tag">#排序</a>
-          
-            <a href="/tags/插入/" rel="tag">#插入</a>
-          
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/js注入/" rel="tag">#js注入</a>
           
         </div>
       
@@ -328,13 +281,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2012/07/30/算法简析之直接选择排序/" rel="prev">算法简析之直接选择排序</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2012/07/29/算法简析之冒泡排序/" rel="next">算法简析之冒泡排序</a>
+              <a href="/2012/07/30/算法简析之直接选择排序/" rel="next">算法简析之直接选择排序</a>
             
           </div>
         </div>
@@ -383,8 +334,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2012/07/30/算法简析之插入排序/"
-                       data-title="算法简析之插入排序" data-url="http://tosslife.github.io/2012/07/30/算法简析之插入排序/">
+                  <div class="ds-thread" data-thread-key="2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/"
+                       data-title="Android中Java与Js交互及Js注入取Html标签值详解" data-url="http://tosslife.github.io/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/">
                   </div>
                 
               </div>
@@ -485,7 +436,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简析"><span class="nav-number">1.</span> <span class="nav-text">简析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#直接插入排序原理"><span class="nav-number">1.2.</span> <span class="nav-text">直接插入排序原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#折半插入排序原理"><span class="nav-number">1.3.</span> <span class="nav-text">折半插入排序原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范例（java）"><span class="nav-number">2.</span> <span class="nav-text">范例（java）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念代码"><span class="nav-number">2.1.</span> <span class="nav-text">概念代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开篇导读"><span class="nav-number">1.</span> <span class="nav-text">开篇导读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作步骤"><span class="nav-number">2.</span> <span class="nav-text">操作步骤</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
