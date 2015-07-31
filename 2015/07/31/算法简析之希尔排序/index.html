@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Android,java与js交互,js注入," />
+  <meta name="keywords" content="java,希尔排序,算法," />
 
 
 
@@ -39,34 +39,49 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="开篇导读Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用
+<meta name="description" content="简析
+概念希尔排序（Shell Sort） 希尔排序的实质就是分组插入排序，该方法又称缩小增量排序。
+原理
+先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序
 
-操作步骤
-WebView开启Js调用：
-mWebView.getSettings().setJavaScriptEnabled(true);
+依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。
 
-定义J">
+当步长的值减小到 1 时，整个数据合成为一组，构成一组有序记录，则完成排序。
+
+
+
+范例（">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android中Java与Js交互及Js注入取Html标签值详解">
-<meta property="og:url" content="http://tosslife.github.io/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/index.html">
+<meta property="og:title" content="算法简析之希尔排序">
+<meta property="og:url" content="http://tosslife.github.io/2015/07/31/算法简析之希尔排序/index.html">
 <meta property="og:site_name" content="Tosslife">
-<meta property="og:description" content="开篇导读Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用
+<meta property="og:description" content="简析
+概念希尔排序（Shell Sort） 希尔排序的实质就是分组插入排序，该方法又称缩小增量排序。
+原理
+先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序
 
-操作步骤
-WebView开启Js调用：
-mWebView.getSettings().setJavaScriptEnabled(true);
+依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。
 
-定义J">
-<meta property="og:updated_time" content="2015-07-31T10:02:53.000Z">
+当步长的值减小到 1 时，整个数据合成为一组，构成一组有序记录，则完成排序。
+
+
+
+范例（">
+<meta property="og:updated_time" content="2015-07-31T10:01:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android中Java与Js交互及Js注入取Html标签值详解">
-<meta name="twitter:description" content="开篇导读Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用
+<meta name="twitter:title" content="算法简析之希尔排序">
+<meta name="twitter:description" content="简析
+概念希尔排序（Shell Sort） 希尔排序的实质就是分组插入排序，该方法又称缩小增量排序。
+原理
+先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序
 
-操作步骤
-WebView开启Js调用：
-mWebView.getSettings().setJavaScriptEnabled(true);
+依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。
 
-定义J">
+当步长的值减小到 1 时，整个数据合成为一组，构成一组有序记录，则完成排序。
+
+
+
+范例（">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -76,7 +91,7 @@ mWebView.getSettings().setJavaScriptEnabled(true);
   };
 </script>
 
-    <title> Android中Java与Js交互及Js注入取Html标签值详解 // Tosslife </title>
+    <title> 算法简析之希尔排序 // Tosslife </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -181,7 +196,7 @@ mWebView.getSettings().setJavaScriptEnabled(true);
           
           
             
-              Android中Java与Js交互及Js注入取Html标签值详解
+              算法简析之希尔排序
             
           
         </h1>
@@ -190,7 +205,7 @@ mWebView.getSettings().setJavaScriptEnabled(true);
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-07-31T14:41:05+08:00" content="2015-07-31">
+          <time itemprop="dateCreated" datetime="2015-07-31T17:29:39+08:00" content="2015-07-31">
             2015-07-31
           </time>
         </span>
@@ -201,8 +216,8 @@ mWebView.getSettings().setJavaScriptEnabled(true);
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/" itemprop="commentsCount"></span>
+              <a href="/2015/07/31/算法简析之希尔排序/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/31/算法简析之希尔排序/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -216,52 +231,67 @@ mWebView.getSettings().setJavaScriptEnabled(true);
       
 
       
-        <span itemprop="articleBody"><h3 id="开篇导读">开篇导读</h3><p><strong>Android提供了WebView控件用来处理Web网页，而在网页中，JavaScript一个很举足轻重的脚本。</strong><br><strong>本文将介绍如何通过JavaScript代码注入实现获取Html中标签值继而实现Java代码和Javascript代码的相互调用</strong></p>
+        <span itemprop="articleBody"><h3 id="简析">简析</h3><hr>
+<h4 id="概念">概念</h4><p><strong>希尔排序（Shell Sort）</strong> 希尔排序的实质就是分组插入排序，该方法又称缩小增量排序。</p>
+<h4 id="原理">原理</h4><ol>
+<li><p>先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序</p>
+</li>
+<li><p>依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。</p>
+</li>
+<li><p>当步长的值减小到 1 时，整个数据合成为一组，构成一组有序记录，则完成排序。</p>
+</li>
+</ol>
 <hr>
-<h3 id="操作步骤">操作步骤</h3><ol>
-<li><p>WebView开启Js调用：</p>
-<pre><code>mWebView.getSettings<span class="params">()</span>.setJavaScriptEnabled<span class="params">(<span class="literal">true</span>)</span>;
-</code></pre></li>
-<li><p>定义JavaScript调用的交互接口及方法：</p>
-<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaScriptInterface</span> </span>{
-
-    <span class="annotation">@JavascriptInterface</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getTagVal</span><span class="params">(<span class="keyword">final</span> String val)</span> </span>{
-
-        <span class="keyword">if</span> (!TextUtils.isEmpty(shareUrl)) {
-            Log.e(<span class="string">"log tag"</span>, <span class="string">"received from js. val = "</span> + val);
+<h3 id="范例（java）">范例（java）</h3><p>初始时，有一个大小为 10 的无序序列{9,1,2,5,7,4,8,6,5,3}。</p>
+<p>在第一趟排序中，我们不妨设 gap1 = N / 2 = 5，即相隔距离为 5 的元素组成一组，可以分为 5 组</p>
+<p>{9,4}，{1,8}，{2,6}，{5,5}，{7,3}</p>
+<p>接下来，按照直接插入排序的方法对每个组进行排序</p>
+<p>{4,9}，{1,8}，{2,6}，{5,5}，{3,7}</p>
+<p>排序后位置交换原数组 {4,1,2,3,5,9,8,6,5,7} </p>
+<p>在第二趟排序中，我们把上次的 gap 缩小一半，即 gap2 = gap1 / 2 = 2 (取整数)。这样每相隔距离为 2 的元素组成一组，可以分为 2 组。</p>
+<p>{4,2,5,8,5},{1,3,9,6,7}</p>
+<p>按照直接插入排序的方法对每个组进行排序。</p>
+<p>{2,4,5,5,8},{1,3,6,7,9}</p>
+<p>排序后位置交换原数组 {2,1,4,3,5,6,5,7,8,9} </p>
+<p>在第三趟排序中，再次把 gap 缩小一半，即gap3 = gap2 / 2 = 1。 这样相隔距离为 1 的元素组成一组，即只有一组。</p>
+<p>{2,1,4,3,5,6,5,7,8,9} </p>
+<p>按照直接插入排序的方法对每个组进行排序。此时，排序已经结束。</p>
+<p>{1,2,3,4,5,5,6,7,8,9} </p>
+<p><strong>需要注意一下的是，图中有两个相等数值的元素 5 和 5 。我们可以清楚的看到，在排序过程中，两个元素位置交换了。<br>所以，希尔排序是不稳定的算法</strong></p>
+<hr>
+<h4 id="概念代码">概念代码</h4><pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {
+    <span class="keyword">int</span>[] arr = {<span class="number">9</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">3</span>};
+    <span class="keyword">int</span> i, j, gap;
+    <span class="keyword">int</span> m = <span class="number">1</span>;<span class="comment">//输出gap步数</span>
+    <span class="keyword">int</span> <span class="keyword">count</span> = arr.length;
+    <span class="keyword">for</span> (gap = <span class="keyword">count</span> <span class="regexp">/ 2; gap &gt; 0; gap /</span>= <span class="number">2</span>) { <span class="comment">//步长</span>
+        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; gap; i++) {<span class="comment">//直接插入排序</span>
+            <span class="keyword">for</span> (j = i + gap; j &lt; <span class="keyword">count</span>; j += gap)
+                <span class="keyword">if</span> (arr[j] &lt; arr[j - gap]) {
+                    <span class="keyword">int</span> temp = arr[j];
+                    <span class="keyword">int</span> k = j - gap;
+                    <span class="keyword">while</span> (k &gt;= <span class="number">0</span> &amp;&amp; arr[k] &gt; temp) {
+                        arr[k + gap] = arr[k];
+                        k -= gap;
+                    }
+                    arr[k + gap] = temp;
+                }
         }
+
+        System.out.<span class="keyword">print</span>(<span class="string">"第"</span> + m + <span class="string">"次排序结果："</span>);
+        <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
+            System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
+        }
+        System.out.<span class="keyword">println</span>(<span class="string">""</span>);
+        m++;
+    }
+
+    System.out.<span class="keyword">print</span>(<span class="string">"最终排序结果："</span>);
+    <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
+        System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
     }
 }
-</code></pre></li>
-<li><p>WebView设置供JavaScript调用的交互接口。</p>
-<pre><code><span class="comment">//后面 “android” 相当于一个标志符</span>
-mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<span class="params">()</span>, <span class="string">"android"</span>)</span>;
-</code></pre></li>
-<li><p>在WebView加载完毕时注入JavaScript代码</p>
-<p> 先看网页代码</p>
-<pre><code>//这里是Html中我要通过注入取得的标签代码
-&lt;meta <span class="variable">name=</span><span class="string">"tag"</span> <span class="variable">content=</span><span class="string">"恭喜你注入成功，得到了返回值"</span> /&gt;
-</code></pre><p> 再来实现我们的java代码</p>
-<pre><code>mWebView.setWebViewClient(<span class="keyword">new</span> WebViewClient() {
-
-    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>{
-        view.loadUrl(url);
-        <span class="comment">//返回值为true的时候控制去WebView打开，为false调用系统浏览器或第三方浏览器</span>
-        <span class="keyword">return</span> <span class="keyword">true</span>;
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView webView, String url)</span> </span>{
-       <span class="comment">//此处windows.android.getTagVal中android是第3步中设置的标记，getTagVal是第2步中的接口中的方法名</span>
-       <span class="comment">//回调的参数中传的就是js代码，自行根据实际html标签脑补或百度</span>
-       String js = <span class="string">"window.android.getTagVal(document.getElementsByName('tag')[0].content))"</span>;
-       webView.loadUrl(<span class="string">"javascript:"</span> + js);
-    }
-});
-</code></pre></li>
-</ol>
-<p><strong>OK！完美收官</strong></p>
+</code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">4	1	2	5</span>	<span class="number">3	9	8	6</span>	5	7	</span><br><span class="line">第2次排序结果：<span class="number">2	1	3	5</span>	<span class="number">4	6	5	7</span>	8	9	</span><br><span class="line">第3次排序结果：<span class="number">1	2	3	4</span>	<span class="number">5	5	6	7</span>	8	9	</span><br><span class="line">最终排序结果：<span class="number">1	2	3	4</span>	<span class="number">5	5	6	7</span>	8	9</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -270,11 +300,11 @@ mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<spa
       
         <div class="post-tags">
           
-            <a href="/tags/Android/" rel="tag">#Android</a>
+            <a href="/tags/java/" rel="tag">#java</a>
           
-            <a href="/tags/java与js交互/" rel="tag">#java与js交互</a>
+            <a href="/tags/希尔排序/" rel="tag">#希尔排序</a>
           
-            <a href="/tags/js注入/" rel="tag">#js注入</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
           
         </div>
       
@@ -283,13 +313,11 @@ mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<spa
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/31/算法简析之希尔排序/" rel="prev">算法简析之希尔排序</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2012/07/30/算法简析之直接选择排序/" rel="next">算法简析之直接选择排序</a>
+              <a href="/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/" rel="next">Android中Java与Js交互及Js注入取Html标签值详解</a>
             
           </div>
         </div>
@@ -338,8 +366,8 @@ mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<spa
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/"
-                       data-title="Android中Java与Js交互及Js注入取Html标签值详解" data-url="http://tosslife.github.io/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/">
+                  <div class="ds-thread" data-thread-key="2015/07/31/算法简析之希尔排序/"
+                       data-title="算法简析之希尔排序" data-url="http://tosslife.github.io/2015/07/31/算法简析之希尔排序/">
                   </div>
                 
               </div>
@@ -440,7 +468,7 @@ mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<spa
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开篇导读"><span class="nav-number">1.</span> <span class="nav-text">开篇导读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作步骤"><span class="nav-number">2.</span> <span class="nav-text">操作步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简析"><span class="nav-number">1.</span> <span class="nav-text">简析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原理"><span class="nav-number">1.2.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#范例（java）"><span class="nav-number">2.</span> <span class="nav-text">范例（java）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念代码"><span class="nav-number">2.1.</span> <span class="nav-text">概念代码</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
