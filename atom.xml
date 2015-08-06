@@ -81,6 +81,89 @@ mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<spa
   </entry>
   
   <entry>
+    <title><![CDATA[算法简析之归并排序]]></title>
+    <link href="http://tosslife.github.io/2012/08/06/%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90%E4%B9%8B%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
+    <id>http://tosslife.github.io/2012/08/06/算法简析之归并排序/</id>
+    <published>2012-08-06T08:22:59.000Z</published>
+    <updated>2015-08-06T08:32:21.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="简析">简析</h3><hr>
+<h4 id="概念">概念</h4><p><strong>归并排序</strong> 归并排序是利用递归和分而治之的技术将数据序列划分成为越来越小的半子表，再对半子表排序，最后再用递归步骤将排好序的半子表合并成为越来越大的有序序列，归并排序包括两个步骤，分别为：</p>
+<h4 id="原理">原理</h4><ol>
+<li><p><strong>拆分</strong>：假设有N个元素的列表，首先把它拆分成2个或2个以上的元素组成的新的列表，分别对对它们进行排序。</p>
+</li>
+<li><p><strong>归并</strong>：把所有的排好序的子类表两两归并，如此重复，直到归并成一个含N个元素的有序列表为止  </p>
+</li>
+</ol>
+<hr>
+<h3 id="范例（java）">范例（java）</h3><h4 id="概念代码">概念代码</h4><pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span>[] <span class="built_in">sort</span>(<span class="built_in">int</span>[] nums, <span class="built_in">int</span> low, <span class="built_in">int</span> high) {  
+    <span class="built_in">int</span> mid = (low + high) / <span class="number">2</span>;  
+    <span class="keyword">if</span> (low &lt; high) {  
+        <span class="comment">// 左边  </span>
+        <span class="built_in">sort</span>(nums, low, mid);  
+        <span class="comment">// 右边  </span>
+        <span class="built_in">sort</span>(nums, mid + <span class="number">1</span>, high);  
+        <span class="comment">// 左右归并  </span>
+        merge(nums, low, mid, high);  
+    }  
+    <span class="keyword">return</span> nums;  
+}  
+
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> merge(<span class="built_in">int</span>[] nums, <span class="built_in">int</span> low, <span class="built_in">int</span> mid, <span class="built_in">int</span> high) {  
+    <span class="built_in">int</span>[] temp = <span class="keyword">new</span> <span class="built_in">int</span>[high - low + <span class="number">1</span>];  
+    <span class="built_in">int</span> i = low;<span class="comment">// 左指针  </span>
+    <span class="built_in">int</span> j = mid + <span class="number">1</span>;<span class="comment">// 右指针  </span>
+    <span class="built_in">int</span> k = <span class="number">0</span>;  
+
+    <span class="comment">// 把较小的数先移到新数组中  </span>
+    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= high) {  
+        <span class="keyword">if</span> (nums[i] &lt; nums[j]) {  
+            temp[k++] = nums[i++];  
+        } <span class="keyword">else</span> {  
+            temp[k++] = nums[j++];  
+        }  
+    }  
+
+    <span class="comment">// 把左边剩余的数移入数组  </span>
+    <span class="keyword">while</span> (i &lt;= mid) {  
+        temp[k++] = nums[i++];  
+    }  
+
+    <span class="comment">// 把右边边剩余的数移入数组  </span>
+    <span class="keyword">while</span> (j &lt;= high) {  
+        temp[k++] = nums[j++];  
+    }  
+
+    <span class="comment">// 把新数组中的数覆盖nums数组  </span>
+    <span class="keyword">for</span> (<span class="built_in">int</span> k2 = <span class="number">0</span>; k2 &lt; temp.length; k2++) {  
+        nums[k2 + low] = temp[k2];  
+    }  
+}  
+
+
+<span class="comment">// 归并排序的实现  </span>
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) {  
+
+    <span class="built_in">int</span>[] nums = { <span class="number">2</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">4</span> };  
+
+    MergeSort.<span class="built_in">sort</span>(nums, <span class="number">0</span>, nums.length-<span class="number">1</span>);  
+    System.out.<span class="built_in">println</span>(Arrays.toString(nums));  
+}  
+</code></pre><hr>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h3 id="简析">简析</h3><hr>
+<h4 id="概念">概念</h4><p><strong>归并排序</strong> 归并排序是利用递归和分而治之的技术将数据序列划分成为越来越小的半子表，再对半子表排序，最后再用递归步骤将排好序的半子表合并成为越来越大的有序序列]]>
+    </summary>
+    
+      <category term="java" scheme="http://tosslife.github.io/tags/java/"/>
+    
+      <category term="归并排序" scheme="http://tosslife.github.io/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="算法" scheme="http://tosslife.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[算法简析之希尔排序]]></title>
     <link href="http://tosslife.github.io/2012/07/31/%E7%AE%97%E6%B3%95%E7%AE%80%E6%9E%90%E4%B9%8B%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"/>
     <id>http://tosslife.github.io/2012/07/31/算法简析之希尔排序/</id>

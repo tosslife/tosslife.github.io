@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="java,希尔排序,算法," />
+  <meta name="keywords" content="java,归并排序,算法," />
 
 
 
@@ -40,48 +40,30 @@
 
 
 <meta name="description" content="简析
-概念希尔排序（Shell Sort） 希尔排序的实质就是分组插入排序，该方法又称缩小增量排序。
+概念归并排序 归并排序是利用递归和分而治之的技术将数据序列划分成为越来越小的半子表，再对半子表排序，最后再用递归步骤将排好序的半子表合并成为越来越大的有序序列，归并排序包括两个步骤，分别为：
 原理
-先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序
+拆分：假设有N个元素的列表，首先把它拆分成2个或2个以上的元素组成的新的列表，分别对对它们进行排序。
 
-依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。
-
-当步长的值减小到 1 时，整个数据合成为一组，构成一组有序记录，则完成排序。
-
-
-
-范例（">
+归并：把所有的排好序的子类表两两归并，如此重复，直到归并成一个含N个元素的有序列表为止">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法简析之希尔排序">
-<meta property="og:url" content="http://tosslife.github.io/2012/07/31/算法简析之希尔排序/index.html">
+<meta property="og:title" content="算法简析之归并排序">
+<meta property="og:url" content="http://tosslife.github.io/2012/08/06/算法简析之归并排序/index.html">
 <meta property="og:site_name" content="Tosslife">
 <meta property="og:description" content="简析
-概念希尔排序（Shell Sort） 希尔排序的实质就是分组插入排序，该方法又称缩小增量排序。
+概念归并排序 归并排序是利用递归和分而治之的技术将数据序列划分成为越来越小的半子表，再对半子表排序，最后再用递归步骤将排好序的半子表合并成为越来越大的有序序列，归并排序包括两个步骤，分别为：
 原理
-先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序
+拆分：假设有N个元素的列表，首先把它拆分成2个或2个以上的元素组成的新的列表，分别对对它们进行排序。
 
-依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。
-
-当步长的值减小到 1 时，整个数据合成为一组，构成一组有序记录，则完成排序。
-
-
-
-范例（">
-<meta property="og:updated_time" content="2015-07-31T10:15:38.000Z">
+归并：把所有的排好序的子类表两两归并，如此重复，直到归并成一个含N个元素的有序列表为止">
+<meta property="og:updated_time" content="2015-08-06T08:32:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法简析之希尔排序">
+<meta name="twitter:title" content="算法简析之归并排序">
 <meta name="twitter:description" content="简析
-概念希尔排序（Shell Sort） 希尔排序的实质就是分组插入排序，该方法又称缩小增量排序。
+概念归并排序 归并排序是利用递归和分而治之的技术将数据序列划分成为越来越小的半子表，再对半子表排序，最后再用递归步骤将排好序的半子表合并成为越来越大的有序序列，归并排序包括两个步骤，分别为：
 原理
-先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序
+拆分：假设有N个元素的列表，首先把它拆分成2个或2个以上的元素组成的新的列表，分别对对它们进行排序。
 
-依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。
-
-当步长的值减小到 1 时，整个数据合成为一组，构成一组有序记录，则完成排序。
-
-
-
-范例（">
+归并：把所有的排好序的子类表两两归并，如此重复，直到归并成一个含N个元素的有序列表为止">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -91,7 +73,7 @@
   };
 </script>
 
-    <title> 算法简析之希尔排序 // Tosslife </title>
+    <title> 算法简析之归并排序 // Tosslife </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -196,7 +178,7 @@
           
           
             
-              算法简析之希尔排序
+              算法简析之归并排序
             
           
         </h1>
@@ -205,8 +187,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2012-07-31T17:29:39+08:00" content="2012-07-31">
-            2012-07-31
+          <time itemprop="dateCreated" datetime="2012-08-06T16:22:59+08:00" content="2012-08-06">
+            2012-08-06
           </time>
         </span>
 
@@ -216,8 +198,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2012/07/31/算法简析之希尔排序/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2012/07/31/算法简析之希尔排序/" itemprop="commentsCount"></span>
+              <a href="/2012/08/06/算法简析之归并排序/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2012/08/06/算法简析之归并排序/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -232,66 +214,68 @@
 
       
         <span itemprop="articleBody"><h3 id="简析">简析</h3><hr>
-<h4 id="概念">概念</h4><p><strong>希尔排序（Shell Sort）</strong> 希尔排序的实质就是分组插入排序，该方法又称缩小增量排序。</p>
+<h4 id="概念">概念</h4><p><strong>归并排序</strong> 归并排序是利用递归和分而治之的技术将数据序列划分成为越来越小的半子表，再对半子表排序，最后再用递归步骤将排好序的半子表合并成为越来越大的有序序列，归并排序包括两个步骤，分别为：</p>
 <h4 id="原理">原理</h4><ol>
-<li><p>先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序</p>
+<li><p><strong>拆分</strong>：假设有N个元素的列表，首先把它拆分成2个或2个以上的元素组成的新的列表，分别对对它们进行排序。</p>
 </li>
-<li><p>依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。</p>
-</li>
-<li><p>当步长的值减小到 1 时，整个数据合成为一组，构成一组有序记录，则完成排序。</p>
+<li><p><strong>归并</strong>：把所有的排好序的子类表两两归并，如此重复，直到归并成一个含N个元素的有序列表为止  </p>
 </li>
 </ol>
 <hr>
-<h3 id="范例（java）">范例（java）</h3><p>初始时，有一个大小为 10 的无序序列{9,1,2,5,7,4,8,6,5,3}。</p>
-<p>在第一趟排序中，我们不妨设 gap1 = N / 2 = 5，即相隔距离为 5 的元素组成一组，可以分为 5 组</p>
-<p>{9,4}，{1,8}，{2,6}，{5,5}，{7,3}</p>
-<p>接下来，按照直接插入排序的方法对每个组进行排序</p>
-<p>{4,9}，{1,8}，{2,6}，{5,5}，{3,7}</p>
-<p>排序后位置交换原数组 {4,1,2,5,3,9,8,6,5,7} </p>
-<p>在第二趟排序中，我们把上次的 gap 缩小一半，即 gap2 = gap1 / 2 = 2 (取整数)。这样每相隔距离为 2 的元素组成一组，可以分为 2 组。</p>
-<p>{4,2,3,8,5},{1,5,9,6,7}</p>
-<p>按照直接插入排序的方法对每个组进行排序。</p>
-<p>{2,3,4,5,8},{1,5,6,7,9}</p>
-<p>排序后位置交换原数组 {2,1,3,5,4,6,5,7,8,9} </p>
-<p>在第三趟排序中，再次把 gap 缩小一半，即gap3 = gap2 / 2 = 1。 这样相隔距离为 1 的元素组成一组，即只有一组。</p>
-<p>{2,1,3,5,4,6,5,7,8,9} </p>
-<p>按照直接插入排序的方法对每个组进行排序。此时，排序已经结束。</p>
-<p>{1,2,3,4,5,5,6,7,8,9} </p>
-<p><strong>需要注意一下的是，图中有两个相等数值的元素 5 和 5 。我们可以清楚的看到，在排序过程中，两个元素位置交换了。<br>所以，希尔排序是不稳定的算法</strong></p>
-<hr>
-<h4 id="概念代码">概念代码</h4><pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {
-    <span class="keyword">int</span>[] arr = {<span class="number">9</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">3</span>};
-    <span class="keyword">int</span> i, j, gap;
-    <span class="keyword">int</span> m = <span class="number">1</span>;<span class="comment">//输出gap步数</span>
-    <span class="keyword">int</span> <span class="keyword">count</span> = arr.length;
-    <span class="keyword">for</span> (gap = <span class="keyword">count</span> <span class="regexp">/ 2; gap &gt; 0; gap /</span>= <span class="number">2</span>) { <span class="comment">//步长</span>
-        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; gap; i++) {<span class="comment">//直接插入排序</span>
-            <span class="keyword">for</span> (j = i + gap; j &lt; <span class="keyword">count</span>; j += gap)
-                <span class="keyword">if</span> (arr[j] &lt; arr[j - gap]) {
-                    <span class="keyword">int</span> temp = arr[j];
-                    <span class="keyword">int</span> k = j - gap;
-                    <span class="keyword">while</span> (k &gt;= <span class="number">0</span> &amp;&amp; arr[k] &gt; temp) {
-                        arr[k + gap] = arr[k];
-                        k -= gap;
-                    }
-                    arr[k + gap] = temp;
-                }
-        }
+<h3 id="范例（java）">范例（java）</h3><h4 id="概念代码">概念代码</h4><pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span>[] <span class="built_in">sort</span>(<span class="built_in">int</span>[] nums, <span class="built_in">int</span> low, <span class="built_in">int</span> high) {  
+    <span class="built_in">int</span> mid = (low + high) / <span class="number">2</span>;  
+    <span class="keyword">if</span> (low &lt; high) {  
+        <span class="comment">// 左边  </span>
+        <span class="built_in">sort</span>(nums, low, mid);  
+        <span class="comment">// 右边  </span>
+        <span class="built_in">sort</span>(nums, mid + <span class="number">1</span>, high);  
+        <span class="comment">// 左右归并  </span>
+        merge(nums, low, mid, high);  
+    }  
+    <span class="keyword">return</span> nums;  
+}  
 
-        System.out.<span class="keyword">print</span>(<span class="string">"第"</span> + m + <span class="string">"次排序结果："</span>);
-        <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
-            System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
-        }
-        System.out.<span class="keyword">println</span>(<span class="string">""</span>);
-        m++;
-    }
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> merge(<span class="built_in">int</span>[] nums, <span class="built_in">int</span> low, <span class="built_in">int</span> mid, <span class="built_in">int</span> high) {  
+    <span class="built_in">int</span>[] temp = <span class="keyword">new</span> <span class="built_in">int</span>[high - low + <span class="number">1</span>];  
+    <span class="built_in">int</span> i = low;<span class="comment">// 左指针  </span>
+    <span class="built_in">int</span> j = mid + <span class="number">1</span>;<span class="comment">// 右指针  </span>
+    <span class="built_in">int</span> k = <span class="number">0</span>;  
 
-    System.out.<span class="keyword">print</span>(<span class="string">"最终排序结果："</span>);
-    <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
-        System.out.<span class="keyword">print</span>(anArr + <span class="string">"\t"</span>);
-    }
-}
-</code></pre><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第1次排序结果：<span class="number">4	1	2	5</span>	<span class="number">3	9	8	6</span>	5	7	</span><br><span class="line">第2次排序结果：<span class="number">2	1	3	5</span>	<span class="number">4	6	5	7</span>	8	9	</span><br><span class="line">第3次排序结果：<span class="number">1	2	3	4</span>	<span class="number">5	5	6	7</span>	8	9	</span><br><span class="line">最终排序结果：<span class="number">1	2	3	4</span>	<span class="number">5	5	6	7</span>	8	9</span><br></pre></td></tr></table></figure>
+    <span class="comment">// 把较小的数先移到新数组中  </span>
+    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= high) {  
+        <span class="keyword">if</span> (nums[i] &lt; nums[j]) {  
+            temp[k++] = nums[i++];  
+        } <span class="keyword">else</span> {  
+            temp[k++] = nums[j++];  
+        }  
+    }  
+
+    <span class="comment">// 把左边剩余的数移入数组  </span>
+    <span class="keyword">while</span> (i &lt;= mid) {  
+        temp[k++] = nums[i++];  
+    }  
+
+    <span class="comment">// 把右边边剩余的数移入数组  </span>
+    <span class="keyword">while</span> (j &lt;= high) {  
+        temp[k++] = nums[j++];  
+    }  
+
+    <span class="comment">// 把新数组中的数覆盖nums数组  </span>
+    <span class="keyword">for</span> (<span class="built_in">int</span> k2 = <span class="number">0</span>; k2 &lt; temp.length; k2++) {  
+        nums[k2 + low] = temp[k2];  
+    }  
+}  
+
+
+<span class="comment">// 归并排序的实现  </span>
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) {  
+
+    <span class="built_in">int</span>[] nums = { <span class="number">2</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">4</span> };  
+
+    MergeSort.<span class="built_in">sort</span>(nums, <span class="number">0</span>, nums.length-<span class="number">1</span>);  
+    System.out.<span class="built_in">println</span>(Arrays.toString(nums));  
+}  
+</code></pre><hr>
 </span>
       
     </div>
@@ -302,7 +286,7 @@
           
             <a href="/tags/java/" rel="tag">#java</a>
           
-            <a href="/tags/希尔排序/" rel="tag">#希尔排序</a>
+            <a href="/tags/归并排序/" rel="tag">#归并排序</a>
           
             <a href="/tags/算法/" rel="tag">#算法</a>
           
@@ -313,13 +297,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2012/08/06/算法简析之归并排序/" rel="prev">算法简析之归并排序</a>
+              <a href="/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/" rel="prev">Android中Java与Js交互及Js注入取Html标签值详解</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2012/07/30/算法简析之直接选择排序/" rel="next">算法简析之直接选择排序</a>
+              <a href="/2012/07/31/算法简析之希尔排序/" rel="next">算法简析之希尔排序</a>
             
           </div>
         </div>
@@ -368,8 +352,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2012/07/31/算法简析之希尔排序/"
-                       data-title="算法简析之希尔排序" data-url="http://tosslife.github.io/2012/07/31/算法简析之希尔排序/">
+                  <div class="ds-thread" data-thread-key="2012/08/06/算法简析之归并排序/"
+                       data-title="算法简析之归并排序" data-url="http://tosslife.github.io/2012/08/06/算法简析之归并排序/">
                   </div>
                 
               </div>
