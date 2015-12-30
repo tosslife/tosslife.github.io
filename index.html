@@ -164,6 +164,143 @@
           
           
             
+              <a class="post-title-link" href="/2015/12/17/Android复习笔记之一-ContentProvider/" itemprop="url">
+                Android复习笔记之一:ContentProvider
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-12-17T12:29:10+08:00" content="2015-12-17">
+            2015-12-17
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/12/17/Android复习笔记之一-ContentProvider/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/Android复习笔记之一-ContentProvider/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/11/12/Android-积累的小技巧汇总/" itemprop="url">
+                Android 积累的小技巧汇总
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-12T18:08:58+08:00" content="2015-11-12">
+            2015-11-12
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/12/Android-积累的小技巧汇总/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/12/Android-积累的小技巧汇总/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="开篇导读">开篇导读</h3><p><strong>接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家</strong></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/07/31/Android中Java与Js交互及Js注入取Html标签值详解/" itemprop="url">
                 Android中Java与Js交互及Js注入取Html标签值详解
               </a>
@@ -713,21 +850,18 @@ mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<spa
 
     <span class="keyword">int</span> arr[] = {<span class="number">23</span>, <span class="number">44</span>, <span class="number">56</span>, <span class="number">21</span>, <span class="number">32</span>, <span class="number">55</span>, <span class="number">74</span>, <span class="number">13</span>};
     <span class="keyword">int</span> <span class="keyword">count</span> = arr.length;
-    <span class="keyword">int</span> i, j, k;
-    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; <span class="keyword">count</span>; i++) {
-
-        <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) {
-            <span class="keyword">if</span> (arr[j] &lt; arr[i]) <span class="keyword">break</span>;
-        }
-
-        <span class="keyword">if</span> (j != i - <span class="number">1</span>) {
-            <span class="keyword">int</span> temp = arr[i];
-            <span class="keyword">for</span> (k = i - <span class="number">1</span>; k &gt; j; k--) {
-                arr[k + <span class="number">1</span>] = arr[k];
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="keyword">count</span>; i++) {
+        <span class="keyword">int</span> temp = arr[i];
+        <span class="keyword">int</span> position = i;
+        <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) {
+            <span class="keyword">if</span> (arr[j] &gt; temp) {
+                arr[j + <span class="number">1</span>] = arr[j];
+                position -= <span class="number">1</span>;
+            } <span class="keyword">else</span> {
+                <span class="keyword">break</span>;
             }
-            arr[k + <span class="number">1</span>] = temp;
         }
-
+        arr[position] = temp;
 
         System.out.<span class="keyword">print</span>(<span class="string">"第"</span> + i + <span class="string">"次排序结果："</span>);
         <span class="keyword">for</span> (<span class="keyword">int</span> anArr : arr) {
@@ -974,7 +1108,7 @@ mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<spa
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
