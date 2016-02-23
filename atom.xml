@@ -5,7 +5,7 @@
   <subtitle><![CDATA[tosslife`s blog]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://tosslife.github.io//"/>
-  <updated>2015-12-17T04:29:10.000Z</updated>
+  <updated>2015-12-30T02:22:25.000Z</updated>
   <id>http://tosslife.github.io//</id>
   
   <author>
@@ -16,29 +16,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Android复习笔记之一:ContentProvider]]></title>
-    <link href="http://tosslife.github.io/2015/12/17/Android%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E4%B8%80-ContentProvider/"/>
-    <id>http://tosslife.github.io/2015/12/17/Android复习笔记之一-ContentProvider/</id>
-    <published>2015-12-17T04:29:10.000Z</published>
-    <updated>2015-12-17T04:29:10.000Z</updated>
-    <content type="html"></content>
-    <summary type="html">
-    
-    </summary>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Android 积累的小技巧汇总]]></title>
     <link href="http://tosslife.github.io/2015/11/12/Android-%E7%A7%AF%E7%B4%AF%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7%E6%B1%87%E6%80%BB/"/>
     <id>http://tosslife.github.io/2015/11/12/Android-积累的小技巧汇总/</id>
     <published>2015-11-12T10:08:58.000Z</published>
-    <updated>2015-11-12T10:11:39.000Z</updated>
+    <updated>2015-12-30T02:22:25.000Z</updated>
     <content type="html"><![CDATA[<h3 id="开篇导读">开篇导读</h3><p><strong>接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家</strong></p>
+<h6 id="include标签(避免重复渲染)和_ViewStub类(延迟加载)">include标签(避免重复渲染)和 ViewStub类(延迟加载)</h6><ol>
+<li><p>当我们的页面变得复杂，XML文件内容过多时，<include>标签可以有效地帮助我们整理文件内容，同时提高了XML文件的可读性。同时，它的用法也与Fragment类似。</include></p>
+</li>
+<li><p>ViewStub是一个极佳的延迟加载视图资源的方式。只要你设计的视图是依赖于上下文来改变其可见性的，就利用ViewStub类吧。也许当你只将其应用在一个简单的页面当中时，并不会感觉到在性能上有任何提升，但是在复杂页面中，它的效果是极佳的。</p>
+</li>
+</ol>
 ]]></content>
     <summary type="html">
     <![CDATA[<h3 id="开篇导读">开篇导读</h3><p><strong>接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家</strong></p>
-]]>
+<h6 id="include标签(避免重复渲染)和_ViewStub类(延迟加载)">include]]>
     </summary>
     
       <category term="Android" scheme="http://tosslife.github.io/tags/Android/"/>

@@ -39,16 +39,28 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="开篇导读接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家">
+<meta name="description" content="开篇导读接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家
+include标签(避免重复渲染)和 ViewStub类(延迟加载)
+当我们的页面变得复杂，XML文件内容过多时，标签可以有效地帮助我们整理文件内容，同时提高了XML文件的可读性。同时，它的用法也与Fragment类似。
+
+ViewStub是一个极佳的延迟加载视图资源的方式。只要你设计的视图是依赖于上下文来">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 积累的小技巧汇总">
 <meta property="og:url" content="http://tosslife.github.io/2015/11/12/Android-积累的小技巧汇总/index.html">
 <meta property="og:site_name" content="Tosslife">
-<meta property="og:description" content="开篇导读接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家">
-<meta property="og:updated_time" content="2015-11-12T10:11:39.000Z">
+<meta property="og:description" content="开篇导读接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家
+include标签(避免重复渲染)和 ViewStub类(延迟加载)
+当我们的页面变得复杂，XML文件内容过多时，标签可以有效地帮助我们整理文件内容，同时提高了XML文件的可读性。同时，它的用法也与Fragment类似。
+
+ViewStub是一个极佳的延迟加载视图资源的方式。只要你设计的视图是依赖于上下文来">
+<meta property="og:updated_time" content="2015-12-30T02:22:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 积累的小技巧汇总">
-<meta name="twitter:description" content="开篇导读接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家">
+<meta name="twitter:description" content="开篇导读接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家
+include标签(避免重复渲染)和 ViewStub类(延迟加载)
+当我们的页面变得复杂，XML文件内容过多时，标签可以有效地帮助我们整理文件内容，同时提高了XML文件的可读性。同时，它的用法也与Fragment类似。
+
+ViewStub是一个极佳的延迟加载视图资源的方式。只要你设计的视图是依赖于上下文来">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -199,6 +211,12 @@
 
       
         <span itemprop="articleBody"><h3 id="开篇导读">开篇导读</h3><p><strong>接触Android开发已经有些时日了，也算总结积累了一些小技巧，如今汇总分享给大家</strong></p>
+<h6 id="include标签(避免重复渲染)和_ViewStub类(延迟加载)">include标签(避免重复渲染)和 ViewStub类(延迟加载)</h6><ol>
+<li><p>当我们的页面变得复杂，XML文件内容过多时，<include>标签可以有效地帮助我们整理文件内容，同时提高了XML文件的可读性。同时，它的用法也与Fragment类似。</include></p>
+</li>
+<li><p>ViewStub是一个极佳的延迟加载视图资源的方式。只要你设计的视图是依赖于上下文来改变其可见性的，就利用ViewStub类吧。也许当你只将其应用在一个简单的页面当中时，并不会感觉到在性能上有任何提升，但是在复杂页面中，它的效果是极佳的。</p>
+</li>
+</ol>
 </span>
       
     </div>
@@ -215,8 +233,6 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/17/Android复习笔记之一-ContentProvider/" rel="prev">Android复习笔记之一:ContentProvider</a>
             
           </div>
 
@@ -312,7 +328,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -373,7 +389,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开篇导读"><span class="nav-number">1.</span> <span class="nav-text">开篇导读</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开篇导读"><span class="nav-number">1.</span> <span class="nav-text">开篇导读</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#include标签(避免重复渲染)和_ViewStub类(延迟加载)"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">include标签(避免重复渲染)和 ViewStub类(延迟加载)</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -391,7 +407,7 @@
             <div class="copyright" >
   
   &copy; &nbsp;  2012 - 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
