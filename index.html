@@ -164,6 +164,127 @@
           
           
             
+              <a class="post-title-link" href="/2016/02/23/Android面试宝典/" itemprop="url">
+                Android面试宝典
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-02-23T08:45:50+08:00" content="2016-02-23">
+            2016-02-23
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2016/02/23/Android面试宝典/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/23/Android面试宝典/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h3 id="Java部分">Java部分</h3><ol>
+<li><p><strong>equals与==的区别</strong></p>
+<p> ==是判断两个变量或实例是不是指向同一个内存空间<br> equals是判断两个变量或实例所指向的内存空间的值是不是相同 </p>
+</li>
+<li><p><strong>String、StringBuffer和StringBuilder的区别</strong></p>
+<p> String 不可变 每次对其操作都会在数据池产生一个新的对象，不适合使用在对字符串进行频繁修改的场景<br> StringBuffer和StringBuilder可变，对其修改不会产生新的对象 其两者区别在于StringBuffer线程安全而StringBuilder线程不安全</p>
+</li>
+<li><p><strong>Override和Overload的含义去区别</strong></p>
+<p> override是重写（覆盖）方法名相同，实现不同。<br> overload是重载，方法名相同，参数形式不同。</p>
+</li>
+<li><p><strong>抽象类和接口的区别</strong> </p>
+<p> ①抽象类可以有构造方法，接口中不能有构造方法。<br> ②抽象类中可以有普通成员变量，接口中没有普通成员变量<br> ③抽象类中可以包含非抽象的普通方法，接口中的所有方法必须都是抽象的，不能有非抽象的普通方法。<br> ④抽象类中的抽象方法的访问类型可以是public，protected和（默认类型,虽然eclipse下不报错，但应该也不行），但接口中的抽象方法只能是public类型的，并且默认即为public abstract类型。<br> ⑤抽象类中可以包含静态方法，接口中不能包含静态方法<br> ⑥抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以任意，但接口中定义的变量只能是public static final类型，并且默认即为public static final类型。<br> ⑦一个类可以实现多个接口，但只能继承一个抽象类。</p>
+</li>
+</ol>
+<ol>
+<li><p><strong>sleep()和wait()的区别</strong></p>
+<p> 对于sleep()方法，我们首先要知道该方法是属于Thread类中的。而wait()方法，则是属于Object类中的。<br> sleep()方法导致了程序暂停执行指定的时间，让出cpu该其他线程，但是他的监控状态依然保持者，当指定的时间到了又会自动恢复运行状态。<br> 在调用sleep()方法的过程中，线程不会释放对象锁。<br> 而当调用wait()方法的时候，线程会放弃对象锁，进入等待此对象的等待锁定池，只有针对此对象调用notify()方法后本线程才进入对象锁定池准备，获取对象锁进入运行状态。</p>
+</li>
+<li><p><strong>HashMap Hashtable区别</strong></p>
+<p> ① Hashtable是Dictionary的子类，HashMap是Map接口的一个实现类；<br> ② HashTable不允许null值(key和value都不可以) ,HashMap允许null值(key和value都可以)。<br> ③ Hashtable中的方法是同步的（），而HashMap中的方法在默认情况下不是同步的。即是说，在多线程应用程序中，不用专门的操作就安全地可以使用Hashtable了；而对于HashMap，则需要额外的同步机制。但HashMap的同步问题可通过Collections的一个静态方法得到解决。</p>
+</li>
+<li><p><strong>final、finally、finalize的区别</strong></p>
+<p> ①final用于声明属性，方法和类，分别表示属性不可交变，方法不可覆盖，类不可继承。<br> ②finally是异常处理语句结构的一部分，表示总是执行。<br> ③finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，供垃圾收集时的其他资源回收，例如关闭文件等</p>
+</li>
+<li><p><strong>Comparable和Comparator区别</strong></p>
+<p> Comparable和Comparator都是用来实现集合中元素的比较、排序的。<br> Comparable是在集合内部定义的方法实现的排序，位于java.util下。<br> Comparator是在集合外部实现的排序，位于java.lang下。<br> Comparable是自已完成比较，Comparator是外部程序实现比较。</p>
+</li>
+<li><p>&amp;&amp;和&amp;以及||和|的区别</p>
+<p> &amp;&amp;和&amp;都是表示与，区别是&amp;&amp;只要满足第一个条件，后面条件就不再判断。而&amp;要对所有的条件都进行判断。<br> ||（短路或）和|（或）都是表示“或”，区别是||只要满足第一个条件，后面的条件就不再判断，而|要对所有的条件进行判断。</p>
+</li>
+<li><p><strong>说出ArrayList,Vector,LinkedList的存储性能和特性</strong></p>
+<p> ArrayList和Vector都是使用数组方式存储数据，此数组元素数大于实际存储的数据以便增加和插入元素，它们都允许直接按序号索引元素，但是插入元素要涉及数组元素移动等内存操作，所以索引数据快而插入数据慢，Vector由于使用了synchronized方法（线程安全），通常性能上较ArrayList差，而LinkedList使用双向链表实现存 储，按序号索引数据需要进行前向或后向遍历，但是插入数据时只需要记录本项的前后项即可，所以插入速度较快。<br> 一.同步性:Vector是线程安全的，也就是说是同步的，而ArrayList是线程序不安全的，不是同步的<br> 二.数据增长:当需要增长时,Vector 默认增长为原来一培，而ArrayList却是原来的一半</p>
+</li>
+<li><p><strong>HashMap的底层源码实现</strong></p>
+<p>当我们往HashMap中put元素的时候，先根据key的hashCode重新计算hash值，根据hash值得到这个元素在数组中的位置（即下标），如果数组该位置上已经存放有其他元素了，那么在这个位置上的元素将以链表的形式存放，新加入的放在链头，最先加入的放在链尾。如果数组该位置上没有元素，就直接将该元素放到此数组中的该位置上。</p>
+</li>
+<li><p><strong>多态的实现机制</strong></p>
+</li>
+</ol>
+<pre><code>靠的是父类或接口定义的引用变量可以指向子类或具体实现类的实例对象，而程序调用的方法在运行期才动态绑定，就是引用变量所指向的具体实例对象的方法，也就是内存里正在运行的那个对象的方法，而不是引用变量的类型中定义的方法
+</code></pre><ol>
+<li><p><strong>Switch能否用string做参数</strong></p>
+<p>在 Java 7  之前, switch 只能支持byte,short,char,int 或者其对应的封装类以及 Enum 类型。在JAVA 7中,String 支持被加上了。</p>
+</li>
+<li><p><strong>Collection 和 Collections的区别</strong></p>
+<p>①Collection是集合类的上级接口，继承与他的接口主要有Set 和List.</p>
+<p>②Collections是针对集合类的一个帮助类，他提供一系列静态方法实现对各种集合的搜索、排序、线程安全化等操作。</p>
+</li>
+<li><p><strong>同步和异步有何异同，在什么情况下分别使用他们？举例说明。</strong></p>
+<p>如果数据将在线程间共享。例如正在写的数据以后可能被另一个线程读到，或者正在读的数据可能已经被另一个线程写过了，那么这些数据就是共享数据，必须进行同步存取。</p>
+<p>当应用程序在对象上调用了一个需要花费很长时间来执行的方法，并且不希望让程序等待方法的返回时，就应该使用异步编程，在很多情况下采用异步途径往往更有效率。</p>
+</li>
+</ol>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/11/12/Android-积累的小技巧汇总/" itemprop="url">
                 Android 积累的小技巧汇总
               </a>
@@ -1046,7 +1167,7 @@ mWebView.addJavascriptInterface<span class="params">(new JavaScriptInterface<spa
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
